@@ -36,14 +36,14 @@ int main(int argc, char **argv)	{
 	
 		mpz_fdiv_q(slice_value,diff,number_of_ranges);
 		
-		gmp_printf("Range start: %Zx\n",start_range);
-		gmp_printf("Range end: %Zx\n",end_range);
-		gmp_printf("number: %Zx\n",number_of_ranges);
-		gmp_printf("slice value: %Zx\n",slice_value);
+		gmp_printf("Range start: 0x%Zx\n",start_range);
+		gmp_printf("Range end: 0x%Zx\n",end_range);
+		gmp_printf("number: 0x%Zx\n",number_of_ranges);
+		gmp_printf("slice value: 0x%Zx\n",slice_value);
 
 		mpz_set (current_range,start_range);
 
-		while(mpz_cmp (current_range,end_range) <= 0	)	{	//to compare two mpz_t values
+		while(mpz_cmp (current_range,end_range) < 0	)	{//to compare two mpz_t values
 			gmp_printf("%Zx:",current_range);
 			mpz_add(current_range,current_range,slice_value);
 			gmp_printf("%Zx\n",current_range);
